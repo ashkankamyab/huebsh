@@ -149,7 +149,7 @@ parse_git_branch ()
 
 #. ~/.nvm/nvm.sh
 
-export PS1='\e[0;36m[\u@\h \W]\$ \e[m '
+export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
 #export XDG_DATA_HOME=$XDG_DATA_HOME:/usr/local/monodevelop-3.0.4.7/share
 #export XDG_DATA_DIRS=$XDG_DATA_DIRS:/usr/local/monodevelop-3.0.4.7/share
 ###-begin-npm-completion-###
