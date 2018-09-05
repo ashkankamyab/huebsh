@@ -22,8 +22,6 @@ nmap
 net-tools
 whois
 
-python3-pip
-
 util-linux 
 procps
 hostapd
