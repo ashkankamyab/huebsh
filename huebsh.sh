@@ -4,9 +4,7 @@ KNOWN_DISTRIBUTION="(Debian|Ubuntu|RedHat|CentOS|openSUSE|SUSE)"
 DISTRIBUTION=$(lsb_release -d 2>/dev/null | grep -Eo $KNOWN_DISTRIBUTION  || grep -Eo $KNOWN_DISTRIBUTION /etc/issue 2>/dev/null || grep -Eo $KNOWN_DISTRIBUTION /etc/Eos-release 2>/dev/null || grep -m1 -Eo $KNOWN_DISTRIBUTION /etc/os-release 2>/dev/null || uname -s)
 
 if [ $DISTRIBUTION = "Darwin" ]; then
-    printf "\033[31mThis script does not support installing on the Mac.
-
-Please use the 1-step script available at https://app.datadoghq.com/account/settings#agent/mac.\033[0m\n"
+    printf "\033[31mThis script does not support installing on the Mac."
     exit 1;
 
 elif [ -f /etc/debian_version -o "$DISTRIBUTION" == "Debian" -o "$DISTRIBUTION" == "Ubuntu" ]; then
