@@ -5,7 +5,7 @@ DISTRIBUTION=$(lsb_release -d 2>/dev/null | grep -Eo $KNOWN_DISTRIBUTION  || gre
 if [ $DISTRIBUTION = "Darwin" ]; then
     printf "\033[31mThis script does not support installing on the Mac.
 
-Please use the 1-step script available at https://app.datadoghq.com/account/settings#agent/mac.\033[0m\n"
+Please wait for Darwin version\033[0m\n"
     exit 1;
 
 elif [ -f /etc/debian_version -o "$DISTRIBUTION" == "Debian" -o "$DISTRIBUTION" == "Ubuntu" ]; then
