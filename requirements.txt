@@ -10,6 +10,7 @@ tree
 screen
 jcal
 xclock
+zsh
 
 python3-pip
 vlc
