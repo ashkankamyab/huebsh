@@ -35,7 +35,7 @@ else
     sudo_cmd='sudo'
 fi
 
-if [ $OS="RedHat"] ; then
+if [ $OS="RedHat" ] ; then
     echo -e "Installing $OS Base necessary applications"
     $sudo_cmd yum -y install epel-release
     $sudo_cmd yum -y update && $sudo_cmd yum -y install $(cat requirements.txt)
