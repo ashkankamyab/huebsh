@@ -8,3 +8,4 @@ Huebsh is a script, which supposed to install neccessary Ubuntu pacakges, Hobbie
 - [ ] Adding presepolise as Download Manager
 - [ ] Gnome installer
 - [x] Finding the proper theme for gnome
+- [x] ADD zsh
