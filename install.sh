@@ -2,6 +2,7 @@
 KNOWN_DISTRIBUTION="(Debian|Ubuntu|RedHat|CentOS|openSUSE|Amazon|Arista|SUSE)"
 DISTRIBUTION=$(lsb_release -d 2>/dev/null | grep -Eo $KNOWN_DISTRIBUTION  || grep -Eo $KNOWN_DISTRIBUTION /etc/issue 2>/dev/null || grep -Eo $KNOWN_DISTRIBUTION /etc/Eos-release 2>/dev/null || grep -m1 -Eo $KNOWN_DISTRIBUTION /etc/os-release 2>/dev/null || uname -s)
 
+
 if [ $DISTRIBUTION = "Darwin" ]; then
     printf "\033[31mThis script does not support installing on the Mac.
 
@@ -34,10 +35,14 @@ if [ $(echo "$UID") = "0" ]; then
 else
     sudo_cmd='sudo'
 fi
-#if [ $OS="RedHat"] ; then
-#    echo -e "Installing $OS Base necessary applications"
-#    yum -y update && yum -y install $(cat requirements.txt)
+if [ $OS="RedHat"] ; then
+    echo -e "Installing $OS Base necessary applications"
+    $sudo_cmd yum -y install epel-release
+    $sudo_cmd yum -y update && $sudo_cmd yum -y install $(cat requirements.txt)
 
-#else
-#    echo -e "Installing $OS Bae necessary applications"
-#    apt install -y requirements.txt
+else
+    echo -e "Installing $OS Bae necessary applications"
+    $sudo_cmd apt update && $sudo_cmd apt install -y requirements.txt
+
+
+$sudo_cmd sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
