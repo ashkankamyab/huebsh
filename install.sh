@@ -5,7 +5,6 @@ DISTRIBUTION=$(lsb_release -d 2>/dev/null | grep -Eo $KNOWN_DISTRIBUTION  || gre
 
 if [ $DISTRIBUTION = "Darwin" ]; then
     printf "\033[31mThis script does not support installing on the Mac.
-
 Please wait for Darwin version\033[0m\n"
     exit 1;
 
@@ -35,6 +34,7 @@ if [ $(echo "$UID") = "0" ]; then
 else
     sudo_cmd='sudo'
 fi
+
 if [ $OS="RedHat"] ; then
     echo -e "Installing $OS Base necessary applications"
     $sudo_cmd yum -y install epel-release
@@ -44,5 +44,5 @@ else
     echo -e "Installing $OS Bae necessary applications"
     $sudo_cmd apt update && $sudo_cmd apt install -y requirements.txt
 
-
+fi
 $sudo_cmd sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"

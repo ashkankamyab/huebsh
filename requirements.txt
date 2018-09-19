@@ -9,7 +9,6 @@ screen
 tree
 screen
 jcal
-xclock
 zsh
 fonts-powerline
 
