@@ -32,3 +32,5 @@ haveged
 dnsmasq
 iptables
 sysstat
+
+xclip
