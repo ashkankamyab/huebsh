@@ -6,7 +6,7 @@ else
 fi
 
 
-alias ll='ls -la'
+alias ll='ls -lhta'
 alias cls='clear'
 alias rm='rm -I'
 alias nowrooz=' $sudo_cmd apt-get update &&  $sudo_cmd apt-get upgrade'
