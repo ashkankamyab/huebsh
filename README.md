@@ -1,7 +1,7 @@
 ### huebsh
 [![ko-fi](https://www.ko-fi.com/img/donate_sm.png)](https://ko-fi.com/T6T7IGHN)
 
-Huebsh is a script, which supposed to install neccessary Ubuntu pacakges, Hobbies Project
+Huesbh which mean beauty in German, used to be based on Ubuntu, but I decide to make it more diveres and it now able to be executed in most of linux distores.
 
 ## To Do List
 - [x] zypperMod included
