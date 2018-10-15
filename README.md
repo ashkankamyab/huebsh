@@ -3,9 +3,9 @@
 
 Huebsh is a script, which supposed to install neccessary Ubuntu pacakges, Hobbies Project
 
-- [x] Finding distor detecting procedure,
-- [x] Updating requirements.txt
-- [ ] Adding presepolise as Download Manager
-- [ ] Gnome installer
-- [x] Finding the proper theme for gnome
-- [x] ADD zsh
+- [x] 1.Finding distor detecting procedure,
+- [x] 1.Updating requirements.txt
+- [ ] 1.Adding presepolise as Download Manager
+- [ ] 1.Gnome installer
+- [x] 1.Finding the proper theme for gnome
+- [x] 1.ADD zsh
