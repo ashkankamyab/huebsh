@@ -1,8 +1,9 @@
-# huebsh
+### huebsh
 [![ko-fi](https://www.ko-fi.com/img/donate_sm.png)](https://ko-fi.com/T6T7IGHN)
 
 Huebsh is a script, which supposed to install neccessary Ubuntu pacakges, Hobbies Project
 
+## To Do List
 - [x] zypperMod included
 - [x] ZSH within Ohmyzsh
 - [ ] Writing GTK+ template
@@ -10,4 +11,4 @@ Huebsh is a script, which supposed to install neccessary Ubuntu pacakges, Hobbie
       [ ] BACKGROUNDS
       [ ] APPEARANCE
       [ ] WINDOWS
-- [ ] Doin Well
+- [ ] Fix apt bug
