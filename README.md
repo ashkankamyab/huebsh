@@ -7,8 +7,8 @@ Huebsh is a script, which supposed to install neccessary Ubuntu pacakges, Hobbie
 - [x] zypperMod included
 - [x] ZSH within Ohmyzsh
 - [ ] Writing GTK+ template
-      [ ] ICONS
-      [ ] BACKGROUNDS
-      [ ] APPEARANCE
-      [ ] WINDOWS
+     - [ ] ICONS
+     - [ ] BACKGROUNDS
+     - [ ] APPEARANCE
+     - [ ] WINDOWS
 - [ ] Fix apt bug
