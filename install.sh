@@ -35,14 +35,12 @@ else
     sudo_cmd='sudo'
 fi
 
-if [ $OS="RedHat" ] ; then
-    echo -e "Installing $OS Base necessary applications"
+if [ "$OS" == "RedHat" ]; then
     $sudo_cmd yum -y install epel-release
-    $sudo_cmd yum -y update && $sudo_cmd yum -y install $(cat requirements.txt)
+    $sudo_cmd yum -y update && $sudo_cmd yum -y install $(cat Packages.txt)
 
-else
-    echo -e "Installing $OS Bae necessary applications"
-    $sudo_cmd apt update && $sudo_cmd apt install -y requirements.txt
+elif [ "$OS" == "Debian" ]; then
+    $sudo_cmd apt update && $sudo_cmd apt install $(cat Packages.txt)
 
 fi
-$sudo_cmd sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+# $sudo_cmd sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
