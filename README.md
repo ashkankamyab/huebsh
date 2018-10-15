@@ -10,3 +10,4 @@ Huebsh is a script, which supposed to install neccessary Ubuntu pacakges, Hobbie
       [ ] BACKGROUNDS
       [ ] APPEARANCE
       [ ] WINDOWS
+- [ ] Doin Well
