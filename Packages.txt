@@ -13,7 +13,11 @@ jcal
 htop
 zsh
 fonts-powerline
-
+ifstat
+dstat
+iptraf
+iotop
+lsof
 
 python3-pip
 dsniff
@@ -25,7 +29,7 @@ nmap
 net-tools
 whois
 
-util-linux 
+util-linux
 procps
 hostapd
 iproute2
