@@ -1,0 +1,30 @@
+{
+    "workbench.colorTheme": "rainbow",
+    "window.menuBarVisibility": "toggle",
+    "window.zoomLevel": 0,
+    "todo-tree.defaultHighlight": {
+        "foreground": "green",
+        "type": "none"
+    },
+    "todo-tree.customHighlight": {
+        "TODO": {},
+        "FIXME": {}
+    },
+    "python.jediEnabled": false,
+    "editor.tabCompletion": "on",
+    "emmet.triggerExpansionOnTab": true,
+    "emmet.includeLanguages": {
+        "django-html": "html"
+    },
+    "files.associations": {
+        "*.html": "html"
+    },
+    "editor.formatOnSave": true,
+    "editor.minimap.enabled": false,
+    "editor.fontFamily": "'Inconsolata'. 'Droid Sans Mono', 'Monaco', 'Consolas', 'monospace', 'monospace' ",
+    "editor.lineHeight": 26,
+    "breadcrumbs.enabled": true,
+    "workbench.iconTheme": "vs-nomo-dark",
+    "editor.multiCursorModifier": "ctrlCmd",
+    "python.pythonPath": "/usr/bin/python3",
+}
