@@ -1,14 +1,24 @@
 ### huebsh
 [![ko-fi](https://www.ko-fi.com/img/donate_sm.png)](https://ko-fi.com/T6T7IGHN)
 
-Huesbh which mean beauty in German, used to be based on Ubuntu, but I decide to make it more diveres and it now able to be executed in most of linux distores.
+Huesbh which mean beauty in German, used to be based on Ubuntu, but I decide to make it more diveres and it is now able to be executed in most of linux distores.
 
 ## To Do List
-- [x] zypperMod included
-- [x] ZSH within Ohmyzsh
+- [x] zshrcmod
+     - [ ] Refactroing
+     - [ ] Clean Enviorment
+     - [ ] solve gdate problem within NiX
+
+- [x] tmux
+     - [ ] Clean up, it is to much messy
+
 - [ ] Writing GTK+ template
      - [ ] ICONS
-     - [ ] BACKGROUNDS
-     - [ ] APPEARANCE
+     - [x] BACKGROUNDS
+     - [x] APPEARANCE
      - [ ] WINDOWS
-- [ ] Fix apt bug
+- [x] Fix apt bug
+- [ ] Pacman compatible
+- [ ] Clear Linux
+
+### HVAE FUN
