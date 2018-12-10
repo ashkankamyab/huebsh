@@ -9,8 +9,9 @@ Huesbh which mean beauty in German, used to be based on Ubuntu, but I decide to 
      - [ ] Clean Enviorment
      - [ ] solve gdate problem within NiX
 
-- [x] tmux
-     - [ ] Clean up, it is to much messy
+- [ ] tmux
+     - [x] Clean up, it is to much messy
+     - [ ] solarized tmux
 
 - [ ] Writing GTK+ template
      - [ ] ICONS
@@ -20,5 +21,12 @@ Huesbh which mean beauty in German, used to be based on Ubuntu, but I decide to 
 - [x] Fix apt bug
 - [ ] Pacman compatible
 - [ ] Clear Linux
+
+- [ ] lsb_release .bash_aliases
+      - [x] Ubuntu
+      - [x] Suse
+      - [ ] RHEL
+      - [ ] Arh
+      - [ ] Darwin
 
 ### HVAE FUN
