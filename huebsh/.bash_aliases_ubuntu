@@ -5,10 +5,14 @@ else
     sudo_cmd='sudo'
 fi
 
-
-alias ll='ls -lhta'
+alias ll='ls -lhaF'
 alias cls='clear'
 alias rm='rm -I'
+alias vim='nvim'
+alias tlp-start='$sudo_cmd tlp start'
+alias tlp-stat='$suco_cmd tlp stat'
+alias myServer='youruser@yourdmoain'
+
 alias nowrooz=' $sudo_cmd apt-get update &&  $sudo_cmd apt-get upgrade'
 alias behrooz=' $sudo_cmd apt-get autoclean &&  $sudo_cmd apt-get autoremove'
 alias nowbeh='nowrooz && behrooz'

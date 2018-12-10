@@ -18,6 +18,7 @@ dstat
 iptraf
 iotop
 lsof
+nvim
 
 python3-pip
 dsniff
