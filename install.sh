@@ -40,7 +40,8 @@ if [ "$OS" == "RedHat" ]; then
     $sudo_cmd yum -y update && $sudo_cmd yum -y install $(cat Packages.txt)
 
 elif [ "$OS" == "Debian" ]; then
-    $sudo_cmd apt update && $sudo_cmd apt install $(cat Packages.txt)
-
+    $sudo_cmd apt update && $sudo_cmd apt install -y $(cat Packages.txt)
+elif [ "$OX" == "SUSE"]; then
+    $sudo_cmd zypper refresh -y && $sudo_cmd zypper update -y && sudo_cmd zypper install $(cat Packages.txt)
 fi
 # $sudo_cmd sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"

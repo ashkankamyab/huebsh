@@ -5,28 +5,28 @@ Huesbh which mean beauty in German, used to be based on Ubuntu, but I decide to 
 
 ## To Do List
 - [x] zshrcmod
-     - [ ] Refactroing
-     - [ ] Clean Enviorment
-     - [ ] solve gdate problem within NiX
+    - [ ] Refactroing
+    - [ ] Clean Enviorment
+    - [ ] solve gdate problem within NiX
 
 - [ ] tmux
-     - [x] Clean up, it is to much messy
-     - [ ] solarized tmux
+    - [x] Clean up, it is to much messy
+    - [ ] solarized tmux
 
 - [ ] Writing GTK+ template
-     - [ ] ICONS
-     - [x] BACKGROUNDS
-     - [x] APPEARANCE
-     - [ ] WINDOWS
+    - [ ] ICONS
+    - [x] BACKGROUNDS
+    - [x] APPEARANCE
+    - [ ] WINDOWS
 - [x] Fix apt bug
 - [ ] Pacman compatible
 - [ ] Clear Linux
 
-- [ ] lsb_release .bash_aliases
-      - [x] Ubuntu
-      - [x] Suse
-      - [ ] RHEL
-      - [ ] Arh
-      - [ ] Darwin
+- [ ] lsb_release for **_".bash_aliases"_**
+    - [x] Ubuntu
+    - [x] Suse
+    - [x] RHEL
+    - [ ] Arh
+    - [ ] Darwin
 
 ### HVAE FUN
