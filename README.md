@@ -4,10 +4,7 @@
 Huesbh which mean beauty in German, used to be based on Ubuntu, but I decide to make it more diveres and it is now able to be executed in most of linux distores.
 
 ## To Do List
-- [x] zshrcmod
-    - [ ] Refactroing
-    - [ ] Clean Enviorment
-    - [ ] solve gdate problem within NiX
+
 
 - [ ] tmux
     - [x] Clean up, it is to much messy

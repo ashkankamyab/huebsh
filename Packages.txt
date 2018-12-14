@@ -18,6 +18,7 @@ dstat
 iptraf
 iotop
 lsof
+mplayer
 
 
 python3-pip

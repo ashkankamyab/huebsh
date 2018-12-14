@@ -8,7 +8,6 @@ fi
 alias ll='ls -lhai'
 alias cls='clear'
 alias rm='rm -I'
-alias vim='nvim'
 alias tlp-start='$sudo_cmd tlp start'
 alias tlp-stat='$sudo_cmd tlp stat'
 
