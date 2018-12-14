@@ -1,0 +1,25 @@
+[user]
+	name = Ashkan Kamyab
+	email = ashkankamyab@gmail.com
+
+
+# .gitconfig
+# View the current working tree status using the short format
+    s = status -s
+        #use `git s` in working directory
+
+ # Pull in remote changes for the current repository and all its submodules
+    p = !"git pull; git submodule foreach git pull origin master"
+        #use `git p` in working directory
+
+# Clone a repository including all submodules
+    c = clone —recursive
+        #use `git c <github_url>`
+
+# Commit all changes.... USE THIS ALOT! -av opens my default editor to add commit message.
+    ca = !git add -A && git commit -av
+        #use `git ca` in working directory
+
+# Switch to a branch, creating it if necessary
+    go = "!f() { git checkout -b "$1" 2> /dev/null || git checkout "$1"; }; f"
+        #use `git go <branch_name>` in working directory
