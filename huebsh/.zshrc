@@ -98,7 +98,11 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Aliases
-source .bash_aliases
+if [ -f ~/.bash_aliases ]; then
+    source ~/.bash_aliases
+fi
 # Theme from sepshell
 # https://github.com/doxigo/sepshell
-source .theme
+if [ -f ~/.zsh_theme ]; then
+    source ~/.zsh_theme
+fi
