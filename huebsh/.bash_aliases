@@ -1,12 +1,3 @@
-# Root user detection
-if [ $(echo "$UID") = "0" ]; then
-    sudo_cmd=''
-else
-    sudo_cmd='sudo'
-fi
-
-
-
 
 # Simplified commandline
 alias ll='ls -lhaF'
@@ -25,12 +16,21 @@ alias khnb='mplayer -geometry 100%:100% -noborder -ontop -tv driver=v4l2:gain=1:
 # Git Aliases
 alias git-stat='git status'
 alias git-commit='git add -A && git-commit-all'
+alias git-commit-push='git add -A && git-commit-all && git push'
 
 
 ## Directory selector
 alias prj='cd ~/Documents/Projects/;clear'
 alias vgr='cd ~/Documents/Vagrant;clear'
 
+# https://www.commandlinefu.com/commands/view/24360/open-clipboard-content-on-vim
+alias vcb='xclip -i -selection clipboard -o | vim -'
+
+# https://www.commandlinefu.com/commands/view/24315/list-all-global-top-level-modles-then-remove-all-npm-packages-with-xargs
+## TODO: grep -m1 -h [0-9] /etc/{*elease,issue} 2>/dev/null | head -1
+
+# TODO: file extention funtion
+# https://www.commandlinefu.com/commands/view/24307/find-all-file-extension-in-current-dir.
 
 # alias nowrooz=' $sudo_cmd apt-get update &&  $sudo_cmd apt-get upgrade'
 # alias behrooz=' $sudo_cmd apt-get autoclean &&  $sudo_cmd apt-get autoremove'

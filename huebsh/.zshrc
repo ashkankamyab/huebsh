@@ -97,6 +97,18 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# without sudo for aliases
+if [ $(echo "$UID") = "0" ]; then
+    sudo_cmd=''
+else
+    sudo_cmd='sudo'
+fi
+
+# Functions
+if [ -f ~/.bash_functions ]; then
+    source ~/.bash_functions
+fi
+
 # Aliases
 if [ -f ~/.bash_aliases ]; then
     source ~/.bash_aliases
