@@ -13,9 +13,17 @@ function git-commit-all(){
 function hgrep () {
     history | grep ${*:1}
 }
-
+>/dev/null 2>&1 &
 
 # SASS by stefan.klinkusch@googlemail.com
 function sassy {
   node-sass --watch --recursive --source-map-contents "$1" --output "$2 --source-map true"
+}
+
+
+# Attaching socks connection,
+# TODO: But how detachting it?
+# usage socksy $username@hotst $Port#
+function socksy () {
+    ssh -D $2 $1 -N >/dev/null 2>&1 &
 }
