@@ -1,8 +1,9 @@
 ## Git Functions
 
-function git-commit-all () {
-    if [ -z $1 ]; then
+function git-commit-all(){
+    if [ $1 ]; then
         git commit -m "$1"
-    else;
-        #
+    else
+        git commit --allow-empty-messag
+    fi
 }

@@ -5,7 +5,7 @@ else
     sudo_cmd='sudo'
 fi
 
-source .bash_functions
+
 
 
 # Simplified commandline
@@ -28,8 +28,8 @@ alias git-commit='git add -A && git-commit-all'
 
 
 ## Directory selector
-alias prj='cd ~/Documents/Projects/'
-alias vgr='cd ~/Documents/Vagrant'
+alias prj='cd ~/Documents/Projects/;clear'
+alias vgr='cd ~/Documents/Vagrant;clear'
 
 
 # alias nowrooz=' $sudo_cmd apt-get update &&  $sudo_cmd apt-get upgrade'
