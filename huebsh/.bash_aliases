@@ -7,7 +7,8 @@ alias tlp='$sudo_cmd tlp start'
 alias tlp-stat='$sudo_cmd tlp stat'
 alias vsc='code .'
 alias atm='atom .'
-alias SimpleServer='python3 -m http.server'
+alias SimpleServer='python3 -m http.server 8070'
+alias BS='browser-sync start --directory --server --ui-port 8991 --port 8990 --files "**/*.js, **/*.html, **/*.css"'
 alias myServer='youruser@yourdmoain'
 alias khnb='mplayer -geometry 100%:100% -noborder -ontop -tv driver=v4l2:gain=1:width=320:height=240:device=/dev/video0:fps=20:outfmt=rgb32 tv://'
 
@@ -24,7 +25,8 @@ alias prj='cd ~/Documents/Projects/;clear'
 alias vgr='cd ~/Documents/Vagrant;clear'
 
 # https://www.commandlinefu.com/commands/view/24360/open-clipboard-content-on-vim
-alias vcb='xclip -i -selection clipboard -o | vim -'
+# TODO: xclip
+#alias vcb='xclip -i -selection clipboard -o | vim -'
 
 # https://www.commandlinefu.com/commands/view/24315/list-all-global-top-level-modles-then-remove-all-npm-packages-with-xargs
 ## TODO: grep -m1 -h [0-9] /etc/{*elease,issue} 2>/dev/null | head -1
