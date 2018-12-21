@@ -13,7 +13,6 @@ function git-commit-all(){
 function hgrep () {
     history | grep ${*:1}
 }
->/dev/null 2>&1 &
 
 # SASS by stefan.klinkusch@googlemail.com
 function sassy {
