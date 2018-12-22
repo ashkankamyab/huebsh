@@ -29,7 +29,8 @@ function socksy () {
 
 
 # Web Development basic assets
+# TODO: Creating basic HTML template
 fucntion assets () {
-    mkdir -p assests/css assets/js assets/img && \
-    touch index.html assests/css/$1.css assets/js/$2.js
+    mkdir -p assets/css assets/js assets/img && \
+    touch index.html assets/css/$1.css assets/js/$2.js
 }
