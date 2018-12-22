@@ -32,5 +32,6 @@ function socksy () {
 # TODO: Creating basic HTML template
 fucntion assets () {
     mkdir -p assets/css assets/js assets/img && \
-    touch index.html assets/css/$1.css assets/js/$2.js
+    touch index.html assets/css/$1.css assets/js/$2.js && \
+    git init && echo "node_modules/" > .gitignore
 }
