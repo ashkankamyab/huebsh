@@ -26,3 +26,10 @@ function sassy {
 function socksy () {
     ssh -D $2 $1 -N >/dev/null 2>&1 &
 }
+
+
+# Web Development basic assets
+fucntion assets () {
+    mkdir -p assests/css assets/js assets/img && \
+    touch index.html assests/css/$1.css assets/js/$2.js
+}
