@@ -22,7 +22,7 @@ function sassy {
 
 # Attaching socks connection,
 # TODO: But how detachting it?
-# usage socksy $username@hotst $Port#
+# usage socksy username@hotst:RemotePort LocalPort
 function socksy () {
     ssh -D $2 $1 -N >/dev/null 2>&1 &
 }

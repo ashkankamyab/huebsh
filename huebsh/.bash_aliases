@@ -10,6 +10,7 @@ alias atm='atom .'
 alias SimpleServer='python3 -m http.server 8070'
 alias BS='browser-sync start --directory --server --ui-port 8991 --port 8990 --files "**/*.js, **/*.html, **/*.css"'
 alias myServer='youruser@yourdmoain'
+# https://ubuntuforums.org/showthread.php?t=1229355
 alias khnb='mplayer -geometry 100%:100% -noborder -ontop -tv driver=v4l2:gain=1:width=320:height=240:device=/dev/video0:fps=20:outfmt=rgb32 tv://'
 
 
