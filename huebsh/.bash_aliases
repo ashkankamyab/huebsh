@@ -25,6 +25,8 @@ alias git-commit-push='git add -A && git-commit-all && git push'
 alias prj='cd ~/Documents/Projects/;clear'
 alias vgr='cd ~/Documents/Vagrant;clear'
 
+
+
 # https://www.commandlinefu.com/commands/view/24360/open-clipboard-content-on-vim
 # TODO: xclip
 #alias vcb='xclip -i -selection clipboard -o | vim -'

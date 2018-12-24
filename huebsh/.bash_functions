@@ -35,3 +35,11 @@ function assets () {
     touch index.html assets/css/$1.css assets/js/$2.js
     git init && echo "node_modules/" > .gitignore
 }
+
+# IPv4 v6 aliases may work as a Function
+function myIps() {
+    red='\033[1;31m'
+    gray='\033[1;36m'
+    echo "$gray Private:  $red$(ip -4 addr | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | sed -n 2p)"
+    echo "$gray Public:   $red$(curl -s www.icanhazip.com)"
+}
