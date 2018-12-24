@@ -134,9 +134,7 @@ git_status() {
       echo "⇩"
     fi
   fi
-\[\033[01;32m\]\u@\h\[\033[00
-m\]:
-
+}
 parse_git_branch ()
 {
   branch=$(git branch 2> /dev/null | grep -e '\* ' | sed 's/^..\(.*\)/[\1]/')
