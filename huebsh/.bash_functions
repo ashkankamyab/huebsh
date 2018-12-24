@@ -42,4 +42,5 @@ function myIps() {
     gray='\033[1;36m'
     echo "$gray Private:  $red$(ip -4 addr | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | sed -n 2p)"
     echo "$gray Public:   $red$(curl -s www.icanhazip.com)"
+    # TODO: add the same procedure for ipv6
 }
