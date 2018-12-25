@@ -40,7 +40,25 @@ function assets () {
 function myIps() {
     red='\033[1;31m'
     gray='\033[1;36m'
-    echo "$gray Private:  $red$(ip -4 addr | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | sed -n 2p)"
-    echo "$gray Public:   $red$(curl -s www.icanhazip.com)"
-    # TODO: add the same procedure for ipv6
+    if [ -z $1 ]; then
+        echo "$gray Private v4:  $red$(ip -4 addr | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | sed -n 2p)"
+        echo "$gray Public  v4:  $red$(curl -s www.icanhazip.com)"
+        printf "%`tput cols`s"|sed "s/ /_/g"
+        echo "$gray Private v6:  $red$(ip add sh | grep -oP '(?<=inet6\s).{1,4}:+(:.{1,4}){4}' | sed -n 1p)"
+        #echo "$gray Public v6:  $red$(curl -s www.icanhazip6.com)
+    else
+        if [ $1 -ne 4 -a $1 -ne 6 ]; then
+            echo "$red Error! $gray: Wrong Argument"
+            echo " $1 is not supported, please check the usage"
+            echo " Usage: myIps 6 or myIps 4"
+        else
+            if [ $1 -eq 4 ]; then
+                echo "$gray Private:  $red$(ip -4 addr | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | sed -n 2p)"
+                echo "$gray Public:   $red$(curl -s www.icanhazip.com)"
+            else
+                echo "$gray Private:  $red$(ip add sh | grep -oP '(?<=inet6\s).{1,4}:+(:.{1,4}){4}' | sed -n 1p)"
+                #echo "$gray Public:   $red$(curl -s www.icanhazip6.com)"
+            fi
+        fi
+    fi
 }
