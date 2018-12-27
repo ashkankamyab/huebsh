@@ -43,7 +43,7 @@ function myIps() {
     if [ -z $1 ]; then
         echo "$gray Private v4:  $red$(ip -4 addr | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | sed -n 2p)"
         echo "$gray Public  v4:  $red$(curl -s www.icanhazip.com)"
-        printf "%`tput cols`s"|sed "s/ /_/g"
+        printf "%`tput cols`s"|sed "s/ /-/g"c
         echo "$gray Private v6:  $red$(ip add sh | grep -oP '(?<=inet6\s).{1,4}:+(:.{1,4}){4}' | sed -n 1p)"
         #echo "$gray Public v6:  $red$(curl -s www.icanhazip6.com)
     else
@@ -62,3 +62,9 @@ function myIps() {
         fi
     fi
 }
+
+
+#TODO: lets create a function for wirless activity from command line:
+# iwlist wlp2s0 scan
+# iwconfig wlp2s0 essid "$SSID" key s:$pass
+# iw
