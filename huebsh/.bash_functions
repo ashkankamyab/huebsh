@@ -43,7 +43,7 @@ function myIps() {
     if [ -z $1 ]; then
         echo "$gray Private v4:  $red$(ip -4 addr | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | sed -n 2p)"
         echo "$gray Public  v4:  $red$(curl -s www.icanhazip.com)"
-        printf "%`tput cols`s"|sed "s/ /-/g"c
+        printf "%`tput cols`s"|sed "s/ /-/g"
         echo "$gray Private v6:  $red$(ip add sh | grep -oP '(?<=inet6\s).{1,4}:+(:.{1,4}){4}' | sed -n 1p)"
         #echo "$gray Public v6:  $red$(curl -s www.icanhazip6.com)
     else
