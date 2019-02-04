@@ -1,6 +1,6 @@
 ## Git Functions
 
-function git-commit-all(){
+function git-commit(){
     if [ $1 ]; then
         git commit -m "$1"
     else

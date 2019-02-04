@@ -17,8 +17,9 @@ alias khnb='mplayer -geometry 100%:100% -noborder -ontop -tv driver=v4l2:gain=1:
 
 # Git Aliases
 alias git-stat='git status'
-alias git-commit='git add -A && git-commit-all'
-alias git-commit-push='git add -A && git-commit-all && git push'
+alias git-lot='git log'
+alias git-commit='git add -A && git-commit'
+alias git-commit-push='git add -A && git-commit && git push'
 
 
 ## Directory selector
