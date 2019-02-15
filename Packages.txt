@@ -22,6 +22,7 @@ mplayer
 
 
 python3-pip
+ipython
 dsniff
 build-essential
 hping3
