@@ -11,7 +11,7 @@ Huesbh which mean beauty in German, used to be based on Ubuntu, but I decide to 
     - [ ] solarized tmux
 
 - [ ] Writing GTK+ template
-    - [ ] ICONS
+    - [x] ICONS
     - [x] BACKGROUNDS
     - [x] APPEARANCE
     - [ ] WINDOWS
