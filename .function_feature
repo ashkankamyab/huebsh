@@ -1,0 +1,26 @@
+function wlanConnect() {
+    if [ $(echo "$UID") = "0" ]; then
+        sudo_cmd=''
+    else
+        sudo_cmd='sudo'
+    fi
+    red='\033[1;31m'
+    gray='\033[1;36m'
+    #TODO: extract Wireless Name
+    WLANID=$(ip link sh | grep wl | awk '{print $2}' | sed 's/\://g')
+    #TODO: make list of reachable SSIDs
+    WLANLIST=$(iwlist $WLANID scan | grep ESSID | cut -f 2 -d ":" | sed 's/\"//g')
+    if [ -z $1 ];then
+        echo "$red ERROR: $gray Please Give a correct $red Arguement$gray \nUsage:\n       wlanConnect watch -> To have a list of available Wireless Networs\n       wlanConnect $red SSID $red ShareKey -> $gray Connect to you desired Network"
+        echo "$red Important"
+    elif [ -z $2 -a "$1" = "watch" ];then
+        echo "$red $WLANLIST $gray"
+    elif [ -n $1 -a -n $2 ]; then
+        $sudo_cmd iwconfig $WLANID essid $1 key s:$2
+
+    elif [-n $1 -a -z $2 ]; then
+        #$iwconfig $WLANID essid $1 key s:$2
+        #TODO: Connecting to CaptivePortal WLANs
+        echo "$red Not Supported yet, $gray We are extrenly under Development"
+    fi
+}
