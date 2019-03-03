@@ -1,7 +1,7 @@
 ## Git Functions
 
 function git-commit(){
-    if [ $1 ]; then
+    if [ -n $1 ]; then
         git commit -m "$1"
     else
         git commit --allow-empty-messag
@@ -65,10 +65,8 @@ function myIps() {
 
 
 #TODO: lets create a function for wirless activity from command line:
-# iwlist wlp2s0 scan
-#TODO: extract wirelss card name
-# iwconfig wlp2s0 essid "$SSID" key s:$pass
 function wlanConnect() {
+    #TODO: Check whether sudo_cmd necessarily should implement here
     if [ $(echo "$UID") = "0" ]; then
         sudo_cmd=''
     else
