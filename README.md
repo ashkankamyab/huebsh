@@ -6,10 +6,6 @@ Huesbh which mean beauty in German, used to be based on Ubuntu, but I decide to 
 ## To Do List
 
 
-- [ ] tmux
-    - [x] Clean up, it is to much messy
-    - [ ] solarized tmux
-
 - [ ] Writing GTK+ template
     - [x] ICONS
     - [x] BACKGROUNDS
