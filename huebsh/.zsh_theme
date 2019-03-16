@@ -7,8 +7,8 @@
 # http://www.alanwood.net/unicode#symbols
 # http://www.fileformat.info/info/unicode/char/search.htm
 # http://www.personal.psu.edu/ejp10/blogs/gotunicode/charts/runes.html
-PROMPT_NORMAL='ϟ' # ϟ ⟆ ⨠ ⁑ ⁝ ● 🍕 🍺
-PROMPT_ERROR='☢' # ✕ ⨵ ● ☢ 
+PROMPT_NORMAL='ϟ' # ϟ ⟆ ⨠ ⁑ ⁝ ● 🍕 🍺 ♪ ♥
+PROMPT_ERROR='☢' # ✕ ⨵ ● ☢
 PROMPT_ROOT='☠' # ✱ ✸ ♛ ⟢ ✧ ϟ ☠
 PROMPT_JOB='←' # ← ⇤ ⤶ ⟲ « ⇧
 PROMPT_ARROW='→' # → ⇥ ⤳ ➦ ↪ ↳ »
