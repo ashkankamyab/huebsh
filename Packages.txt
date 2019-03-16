@@ -3,6 +3,7 @@ wget
 tlp
 vim
 geany
+chromium-browser
 gnome-tweak-tool
 vlc
 snapd
@@ -13,12 +14,15 @@ jcal
 htop
 zsh
 fonts-powerline
+fonts-inconsolata
 ifstat
 dstat
 iptraf
 iotop
 lsof
 mplayer
+cowsay
+mosh
 
 
 python3-pip
@@ -27,7 +31,6 @@ dsniff
 build-essential
 hping3
 fping
-wireshark
 nmap
 net-tools
 whois

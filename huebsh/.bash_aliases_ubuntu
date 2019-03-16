@@ -24,6 +24,6 @@ alias vgr='cd ~/Documents/Vagrant'
 
 
 
-alias nowrooz=' $sudo_cmd apt-get update &&  $sudo_cmd apt-get upgrade'
-alias behrooz=' $sudo_cmd apt-get autoclean &&  $sudo_cmd apt-get autoremove'
+alias nowrooz=' $sudo_cmd apt-get -qq update &&  $sudo_cmd apt-get -q upgrade'
+alias behrooz=' $sudo_cmd apt-get -q autoclean &&  $sudo_cmd apt-get -q autoremove'
 alias nowbeh='nowrooz && behrooz'
