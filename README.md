@@ -21,5 +21,6 @@ Huesbh which mean beauty in German, used to be based on Ubuntu, but I decide to 
     - [x] RHEL
     - [ ] Arh
     - [ ] Darwin
+    - [ ] WLS(Windows Linux subsystem)
 
 ### HVAE FUN
