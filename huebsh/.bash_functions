@@ -8,6 +8,11 @@ function git-commit(){
     fi
 }
 
+function git-commit-push(){
+  git-commit $1
+  git push --set-upstream origin $(git_current_branch)
+}
+
 
 # https://www.ibm.com/developerworks/community/blogs/ac33fe4b-e8f6-48d6-8a93-2d4f63b264ed/entry/handy_bash_functions_history_grep?lang=en
 function hgrep () {
@@ -89,6 +94,10 @@ function wlanConnect() {
     elif [-n $1 -a -z $2 ]; then
         #$iwconfig $WLANID essid $1 key s:$2
         #TODO: Connecting to CaptivePortal WLANs
-        echo "$red Not Supported yet, $gray We are extrenly under Development"
+        echo "$red Not Supported yet, $gray We are extremly under Development"
     fi
+}
+
+function AngryIp() {
+  nmap -sn $(ip addr list | awk '/inet.*brd/ {print $2}') -oG - | awk '$4=="Status:" && $5=="Up" {print $0}'|column -t
 }

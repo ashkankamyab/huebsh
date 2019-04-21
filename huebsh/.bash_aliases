@@ -7,6 +7,7 @@ alias tlp='$sudo_cmd tlp start'
 alias tlp-stat='$sudo_cmd tlp stat'
 alias vsc='code .'
 alias atm='atom .'
+#alias open='nautilus .' #Works only when you have Gnome
 alias SimpleServer='python3 -m http.server 8070'
 alias BS='browser-sync start --directory --server --ui-port 8991 --port 8990 --files "**/*.js, **/*.html, **/*.css"'
 alias myServer='youruser@yourdmoain'
@@ -14,12 +15,10 @@ alias myServer='youruser@yourdmoain'
 alias khnb='mplayer -geometry 100%:100% -noborder -ontop -tv driver=v4l2:gain=1:width=320:height=240:device=/dev/video0:fps=20:outfmt=rgb32 tv://'
 
 
-
 # Git Aliases
 alias git-stat='git status'
-alias git-lot='git log'
-alias git-commit='git add -A && git-commit'
-alias git-commit-push='git add -A && git-commit && git push'
+alias git-log='git log'
+alias git-commit='git add -A && git commit --allow-empty'
 
 
 ## Directory selector
