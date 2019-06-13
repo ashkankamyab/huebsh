@@ -101,3 +101,6 @@ function wlanConnect() {
 function AngryIp() {
   nmap -sn $(ip addr list | awk '/inet.*brd/ {print $2}') -oG - | awk '$4=="Status:" && $5=="Up" {print $0}'|column -t
 }
+function rsbranch() {
+    for branch in `git branch | grep $1 | awk '{print $1}'`; do git branch -D $branch; done
+}
