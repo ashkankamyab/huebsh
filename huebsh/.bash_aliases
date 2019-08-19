@@ -40,3 +40,5 @@ alias vgr='cd ~/Documents/Vagrant;clear'
 # alias nowrooz=' $sudo_cmd apt-get update &&  $sudo_cmd apt-get upgrade'
 # alias behrooz=' $sudo_cmd apt-get autoclean &&  $sudo_cmd apt-get autoremove'
 # alias nowbeh='nowrooz && behrooz'
+# Log Compresser
+alias logpresser="for file in `find . -mtime +15 -type f ! -name '*.gz' -printf '%P\n';`;do lsof $file>/dev/null;is=$?;if [ $is -ne 0 ];then gzip $file;echo File gzipped: $file;else echo File being used:$file;fi;done"
