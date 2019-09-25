@@ -26,7 +26,9 @@ alias prj='cd ~/Documents/Projects/;clear'
 alias vgr='cd ~/Documents/Vagrant;clear'
 
 
+# SysOps
 
+alias swap_show='find /proc -maxdepth 2 -path "/proc/[0-9]*/status" -readable -exec awk -v FS=":" '{process[$1]=$2;sub(/^[ \t]+/,"",process[$1]);} END {if(process["VmSwap"] && process["VmSwap"] != "0 kB") printf "%10s %-30s %20s\n",process["Pid"],process["Name"],process["VmSwap"]}' '{}' \; | awk '{print $(NF-1),$0}' | sort -hr | head | cut -d " " -f2-'
 # https://www.commandlinefu.com/commands/view/24360/open-clipboard-content-on-vim
 # TODO: xclip
 #alias vcb='xclip -i -selection clipboard -o | vim -'
