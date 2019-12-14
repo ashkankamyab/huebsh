@@ -1,0 +1,14 @@
+Host JumpHost
+    HostName <ip/hostname>
+    IdentityFile ~/.ssh/id_rsa
+    ForwardAgent yes
+    ServerAliveInterval 300
+    ServerAliveCountMax 2
+
+Host scoks_proxy
+    HostName <ip/hostanme>
+    User <User>
+    ControlPath ~/.ssh/tunnel.ctl
+    ProxyJump JumpHost
+    ServerAliveInterval 300
+    ServerAliveCountMax 2

@@ -104,3 +104,27 @@ function AngryIp() {
 function rsbranch() {
     for branch in `git branch | grep $1 | awk '{print $1}'`; do git branch -D $branch; done
 }
+
+function tunnel() {
+    readonly CMND=${1:-status}
+    readonly HOST=${2:-socks_proxy}
+
+    case $CMND in
+    up)
+        ssh -f -N -T -M -D 1366 $HOST
+        ;;
+    down)
+        ssh -T -O "exit" $HOST
+        ;;
+    status)
+        msg=$(ssh -T -O "check" $HOST >&1)
+        ret=$?
+        if [[ $ret -eq 0 ]]
+        then
+        echo -n "${msg}"
+        else
+        echo "tunnel is down"
+        fi
+        ;;
+    esac
+}
