@@ -25,14 +25,6 @@ function sassy {
 }
 
 
-# Attaching socks connection,
-# TODO: But how detachting it?
-# usage socksy username@hotst:RemotePort LocalPort
-function socksy () {
-    ssh -D $2 $1 -N >/dev/null 2>&1 &
-}
-
-
 # Web Development basic assets
 # TODO: Creating basic HTML template
 function assets () {
@@ -43,8 +35,6 @@ function assets () {
 
 # IPv4 v6 aliases may work as a Function
 function myIps() {
-    red='\033[1;31m'
-    gray='\033[1;36m'
     if [ -z $1 ]; then
         echo "\033[1;31m Private v4:  \033[1;36m$(ip -4 addr | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | sed -n 2p)"
         echo "\033[1;31m Public  v4:  \033[1;36m$(curl -s www.icanhazip.com)"
@@ -104,4 +94,26 @@ function AngryIp() {
 function rsbranch() {
     for branch in `git branch | grep $1 | awk '{print $1}'`; do git branch -D $branch; done
 }
+function socksy() {
+    readonly CMND=${1:-status}
+    readonly HOST=${2:-socks_proxy}
 
+    case $CMND in
+    up)
+        ssh -f -N -T -M -D 1366 $HOST
+        ;;
+    down)
+        ssh -T -O "exit" $HOST
+        ;;
+    status)
+        msg=$(ssh -T -O "check" $HOST >&1)
+        ret=$?
+        if [[ $ret -eq 0 ]]
+        then
+        echo -n "${msg}"
+        else
+        echo "tunnel is down"
+        fi
+        ;;
+    esac
+}
