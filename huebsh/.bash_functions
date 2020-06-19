@@ -46,23 +46,23 @@ function myIps() {
     red='\033[1;31m'
     gray='\033[1;36m'
     if [ -z $1 ]; then
-        echo "$gray Private v4:  $red$(ip -4 addr | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | sed -n 2p)"
-        echo "$gray Public  v4:  $red$(curl -s www.icanhazip.com)"
+        echo "\033[1;31m Private v4:  \033[1;36m$(ip -4 addr | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | sed -n 2p)"
+        echo "\033[1;31m Public  v4:  \033[1;36m$(curl -s www.icanhazip.com)"
         printf "%`tput cols`s"|sed "s/ /-/g"
-        echo "$gray Private v6:  $red$(ip add sh | grep -oP '(?<=inet6\s).{1,4}:+(:.{1,4}){4}' | sed -n 1p)"
-        #echo "$gray Public v6:  $red$(curl -s www.icanhazip6.com)
+        echo "\033[1;31m Private v6:  \033[1;36m$(ip add sh | grep -oP '(?<=inet6\s).{1,4}:+(:.{1,4}){4}' | sed -n 1p)"
+        #echo "\033[1;31mPublic v6:  \033[1;36m$(curl -s www.icanhazip6.com)
     else
         if [ $1 -ne 4 -a $1 -ne 6 ]; then
-            echo "$red Error! $gray: Wrong Argument"
+            echo "\033[1;31m Error! \033[1;36m: Wrong Argument"
             echo " $1 is not supported, please check the usage"
             echo " Usage: myIps 6 or myIps 4"
         else
             if [ $1 -eq 4 ]; then
-                echo "$gray Private:  $red$(ip -4 addr | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | sed -n 2p)"
-                echo "$gray Public:   $red$(curl -s www.icanhazip.com)"
+                echo "\033[1;36m Private:  \033[1;31m$(ip -4 addr | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | sed -n 2p)"
+                echo "\033[1;36m Public:   \033[1;31m$(curl -s www.icanhazip.com)"
             else
-                echo "$gray Private:  $red$(ip add sh | grep -oP '(?<=inet6\s).{1,4}:+(:.{1,4}){4}' | sed -n 1p)"
-                #echo "$gray Public:   $red$(curl -s www.icanhazip6.com)"
+                echo "\033[1;36m Private:  \033[1;31m$(ip add sh | grep -oP '(?<=inet6\s).{1,4}:+(:.{1,4}){4}' | sed -n 1p)"
+                #echo "\033[1;36m Public:   \033[1;31m$(curl -s www.icanhazip6.com)"
             fi
         fi
     fi
@@ -104,3 +104,4 @@ function AngryIp() {
 function rsbranch() {
     for branch in `git branch | grep $1 | awk '{print $1}'`; do git branch -D $branch; done
 }
+
