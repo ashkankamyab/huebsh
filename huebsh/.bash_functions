@@ -94,6 +94,11 @@ function AngryIp() {
 function rsbranch() {
     for branch in `git branch | grep $1 | awk '{print $1}'`; do git branch -D $branch; done
 }
+
+function showYaml() {
+    python -c 'import yaml,pprint;pprint.pprint(yaml.load(open("$1").read(), Loader=yaml.FullLoader))'
+}
+
 function socksy() {
     readonly CMND=${1:-status}
     readonly HOST=${2:-socks_proxy}
