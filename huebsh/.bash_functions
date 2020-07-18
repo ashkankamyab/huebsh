@@ -24,6 +24,9 @@ function sassy {
   node-sass --watch --recursive --source-map-contents "$1" --output "$2 --source-map true"
 }
 
+function yamlpy () {
+    python -c 'import yaml,pprint,sys;pprint.pprint(yaml.load(open(sys.argv[1]).read()))'
+}
 
 # Web Development basic assets
 # TODO: Creating basic HTML template
@@ -95,8 +98,8 @@ function rsbranch() {
     for branch in `git branch | grep $1 | awk '{print $1}'`; do git branch -D $branch; done
 }
 
-function showYaml() {
-    python -c 'import yaml,pprint;pprint.pprint(yaml.load(open("$1").read(), Loader=yaml.FullLoader))'
+function yamlpy() {
+    python -c 'import sys,yaml,pprint;pprint.pprint(yaml.load(open(sys.argv[1]).read(), Loader=yaml.FullLoader))' $1
 }
 
 function socksy() {
