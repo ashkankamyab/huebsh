@@ -24,10 +24,6 @@ function sassy {
   node-sass --watch --recursive --source-map-contents "$1" --output "$2 --source-map true"
 }
 
-function yamlpy () {
-    python -c 'import yaml,pprint,sys;pprint.pprint(yaml.load(open(sys.argv[1]).read()))'
-}
-
 # Web Development basic assets
 # TODO: Creating basic HTML template
 function assets () {
