@@ -3,6 +3,7 @@ filetype off                  " required
 set background=dark " Assume a light background
 set t_Co=256
 " MyConf
+
 " From P.Hooshmandi
 " Formatting {
     set nowrap          " Disable text wrapping
@@ -114,6 +115,8 @@ Plugin 'jnurmine/Zenburn'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-fugitive'
 " ...
 
 " All of your Plugins must be added before the following line
@@ -126,3 +129,24 @@ if has('gui_running')
 else
   color zenburn
 endif
+
+
+" Key (re)Mappings {
+    nnoremap Y y$         " Yank from cursor to the end of line
+" }
+
+
+" Remember last position(.viminfo must be writable) {
+    set viminfo='10,\"100,:20,%,n~/.viminfo
+    function! ResCur()
+        if line("'\"") <= line("$")
+            normal! g`"
+            return 1
+        endif
+    endfunction
+    augroup resCur
+        autocmd!
+        autocmd BufWinEnter * call ResCur()
+    augroup END
+" }
+
