@@ -23,9 +23,10 @@ lsof
 mplayer
 cowsay
 mosh
-
+apt-transport-https
 
 python3-pip
+python3-dev
 ipython3
 dsniff
 build-essential
@@ -37,11 +38,9 @@ whois
 
 util-linux
 procps
-hostapd
 iproute2
 iw
 haveged
-dnsmasq
 iptables
 sysstat
 wavemon
