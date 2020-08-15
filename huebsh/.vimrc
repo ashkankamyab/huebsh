@@ -1,8 +1,10 @@
-" Environment {
-    set nocompatible    " Must be first line. Disable vi compatibality 
-    set background=dark " Assume a light background
-" }
+set nocompatible              " required
+filetype off                  " required
+set background=dark " Assume a light background
+set t_Co=256
+" MyConf
 
+" From P.Hooshmandi
 " Formatting {
     set nowrap          " Disable text wrapping
     set autoindent      " Indent at the same level of the previous line
@@ -10,9 +12,7 @@
     set expandtab       " Use spaces instead of tabs
     set tabstop=4       " An indentation every 4 columns
     set softtabstop=4   " Let backspace delete indent
-    
 " }
-
 " General {
     syntax on           " Syntax highlighting
     set mouse=a         " Enable mouse usage
@@ -34,8 +34,102 @@
     " set foldenable      " Autofold code
     " set list            "   
     " set cursorline      " Show current line
-    " color solarized     " Load a color schema
+    " color solarized     " Load a color schema went end of the file
+    let python_highlight_all=1
 " }
+"Split 
+set splitbelow
+set splitright
+"split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
+" PEP8 for python
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+
+" FullStack Development
+au BufNewFile,BufRead *.js, *.html, *.css, *.yml, *.yaml
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
+
+" Flaggin Unnecessary Whitespaces
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+"python with virtualenv support
+python3 << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+    project_base_dir = os.environ['VIRTUAL_ENV']
+    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+EOF
+
+" UTF-8 Support
+set encoding=utf-8
+
+"Docsctring for folded code
+let g:SimpylFold_docstring_preview=1
+
+"YouCompleteMe Customization
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" solarized colorscheme switch with F5
+"call togglebg#map("<F5>")
+
+"nerdtree Ignore pyc files
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" add all your plugins here (note older versions of Vundle
+" used Bundle instead of Plugin)
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'vim-scripts/indentpython.vim'
+Bundle 'Valloric/YouCompleteMe'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'nvie/vim-flake8'
+Plugin 'jnurmine/Zenburn'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-fugitive'
+" ...
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" GUI Idempotency
+if has('gui_running')
+  color solarized
+else
+  color zenburn
+endif
+
 
 " Key (re)Mappings {
     nnoremap Y y$         " Yank from cursor to the end of line
@@ -55,3 +149,4 @@
         autocmd BufWinEnter * call ResCur()
     augroup END
 " }
+
