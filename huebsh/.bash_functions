@@ -32,30 +32,7 @@ function assets () {
     git init && echo "node_modules/" > .gitignore
 }
 
-# IPv4 v6 aliases may work as a Function
-function myIps() {
-    if [ -z $1 ]; then
-        echo "\033[1;31m Private v4:  \033[1;36m$(ip -4 addr | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | sed -n 2p)"
-        echo "\033[1;31m Public  v4:  \033[1;36m$(curl -s www.icanhazip.com)"
-        printf "%`tput cols`s"|sed "s/ /-/g"
-        echo "\033[1;31m Private v6:  \033[1;36m$(ip add sh | grep -oP '(?<=inet6\s).{1,4}:+(:.{1,4}){4}' | sed -n 1p)"
-        #echo "\033[1;31mPublic v6:  \033[1;36m$(curl -s www.icanhazip6.com)
-    else
-        if [ $1 -ne 4 -a $1 -ne 6 ]; then
-            echo "\033[1;31m Error! \033[1;36m: Wrong Argument"
-            echo " $1 is not supported, please check the usage"
-            echo " Usage: myIps 6 or myIps 4"
-        else
-            if [ $1 -eq 4 ]; then
-                echo "\033[1;36m Private:  \033[1;31m$(ip -4 addr | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | sed -n 2p)"
-                echo "\033[1;36m Public:   \033[1;31m$(curl -s www.icanhazip.com)"
-            else
-                echo "\033[1;36m Private:  \033[1;31m$(ip add sh | grep -oP '(?<=inet6\s).{1,4}:+(:.{1,4}){4}' | sed -n 1p)"
-                #echo "\033[1;36m Public:   \033[1;31m$(curl -s www.icanhazip6.com)"
-            fi
-        fi
-    fi
-}
+
 
 
 #TODO: lets create a function for wirless activity from command line:
@@ -87,17 +64,48 @@ function wlanConnect() {
     fi
 }
 
+
 function AngryIp() {
   nmap -sn $(ip addr list | awk '/inet.*brd/ {print $2}') -oG - | awk '$4=="Status:" && $5=="Up" {print $0}'|column -t
 }
-function rsbranch() {
-    for branch in `git branch | grep $1 | awk '{print $1}'`; do git branch -D $branch; done
+
+function swappy(){
+    $sudo_cmd find /proc -maxdepth 2 -path "/proc/[0-9]*/status" -readable -exec awk -v FS=":" '{process[$1]=$2;sub(/^[ \t]+/,"",process[$1]);} END {if(process["VmSwap"] && process["VmSwap"] != "0 kB") printf "%10s %-30s %20s\n",process["Pid"],process["Name"],process["VmSwap"]}' '{}' \; | awk '{print $(NF-1),$0}' | sort -hr | head | cut -d " " -f2-
 }
 
 function yamlpy() {
     python -c 'import sys,yaml,pprint;pprint.pprint(yaml.load(open(sys.argv[1]).read(), Loader=yaml.FullLoader))' $1
 }
 
+function open() {
+    readonly OPENPATH=${1:-$(pwd)}
+    nautilus $OPENPATH > /dev/null 2>&1
+}
+
+# IPv4 v6 aliases may work as a Function
+function iphazip(){
+    readonly IPTYPE=${1:-both}
+    readonly IPVERSION=${2:-v4}
+
+    echo "$IPVERSION: \n"
+    case $IPTYPE in
+    public)
+        curl icanhazip.com
+        ;;
+    private)
+        ip addr show $(ip route | grep default | awk '{print $5}' | head -n1) | grep -E -o "([0-9]{1,3}[\.]){3}[0-9]{1,3}?\/.{1,2}"
+        ;;
+    both)
+        echo  -ne "Public IP:  "; curl icanhazip.com
+        echo -ne "Private IP: ";  ip addr show $(ip route | grep default | awk '{print $5}' | head -n1) | grep -E -o "([0-9]{1,3}[\.]){3}[0-9]{1,3}?\/.{1,2}"
+    esac
+
+    #TODO:
+    echo "\n v6 is coming"
+}
+
+
+#TODO: Find a solution for create a sshconfig
 function socksy() {
     readonly CMND=${1:-status}
     readonly HOST=${2:-socks_proxy}
@@ -121,3 +129,4 @@ function socksy() {
         ;;
     esac
 }
+
