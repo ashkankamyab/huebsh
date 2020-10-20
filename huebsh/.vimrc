@@ -1,8 +1,100 @@
 set nocompatible              " required
 filetype off                  " required
-set background=dark " Assume a light background
-set t_Co=256
-" MyConf
+set number                    " set Line Number
+
+
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" add all your plugins here (note older versions of Vundle
+" used Bundle instead of Plugin)
+" SimplyFold refer to line 13
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'nvie/vim-flake8'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-fugitive'
+"Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+"Colorized vim"
+Plugin 'jnurmine/Zenburn'
+Plugin 'altercation/vim-colors-solarized'
+" ...
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+"set clipboard=unnamed        " OSx access vim's clipboard from outside
+" Spilit and Spilit Navigation
+
+set splitright
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+" Enable folding with the spacebar
+nnoremap <space> za
+
+set encoding=utf-8
+set termguicolors
+
+
+
+" Python PEP8
+au BufNewFile, BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+" YCM Customization
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" Red Flas for tailing white spaces # see it it works
+"python with virtualenv support Needs to betest
+python3 << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
+
+" Python highlight
+let python_highlight_all=1
+syntax on
+
+" NERDTree .pyc does not show *.pyc files
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+
+
+" JS, HTML, CSS, YAML, JSON
+au BufNewFile, BufRead *.js, *.html, *.css, *.yml, *.yaml, *.json
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
+au BufRead, BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 " From P.Hooshmandi
 " Formatting {
@@ -31,122 +123,11 @@ set t_Co=256
     set wildmode=list:longest,full
     set scrolloff=3     " Minimum lines to keep above and below cursor
     set scrolljump=5    " lines to scroll when cursor leaves screen
-    " set foldenable      " Autofold code
-    " set list            "   
-    " set cursorline      " Show current line
-    " color solarized     " Load a color schema went end of the file
-    let python_highlight_all=1
-" }
-"Split 
-set splitbelow
-set splitright
-"split navigations
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-" Enable folding
-set foldmethod=indent
-set foldlevel=99
 
-" PEP8 for python
-au BufNewFile,BufRead *.py
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
-
-" FullStack Development
-au BufNewFile,BufRead *.js, *.html, *.css, *.yml, *.yaml
-    \ set tabstop=2
-    \ set softtabstop=2
-    \ set shiftwidth=2
-
-" Flaggin Unnecessary Whitespaces
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-
-"python with virtualenv support
-python3 << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-    project_base_dir = os.environ['VIRTUAL_ENV']
-    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-    execfile(activate_this, dict(__file__=activate_this))
-EOF
-
-" UTF-8 Support
-set encoding=utf-8
-
-"Docsctring for folded code
-let g:SimpylFold_docstring_preview=1
-
-"YouCompleteMe Customization
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
-" solarized colorscheme switch with F5
-"call togglebg#map("<F5>")
-
-"nerdtree Ignore pyc files
-let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-" add all your plugins here (note older versions of Vundle
-" used Bundle instead of Plugin)
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'vim-scripts/indentpython.vim'
-Bundle 'Valloric/YouCompleteMe'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'nvie/vim-flake8'
-Plugin 'jnurmine/Zenburn'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'kien/ctrlp.vim'
-Plugin 'tpope/vim-fugitive'
-" ...
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-" GUI Idempotency
+"Color scheme
 if has('gui_running')
-  color solarized
+  set background=dark
+  colorscheme solarized
 else
-  color zenburn
+  colorscheme zenburn
 endif
-
-
-" Key (re)Mappings {
-    nnoremap Y y$         " Yank from cursor to the end of line
-" }
-
-
-" Remember last position(.viminfo must be writable) {
-    set viminfo='10,\"100,:20,%,n~/.viminfo
-    function! ResCur()
-        if line("'\"") <= line("$")
-            normal! g`"
-            return 1
-        endif
-    endfunction
-    augroup resCur
-        autocmd!
-        autocmd BufWinEnter * call ResCur()
-    augroup END
-" }
-
