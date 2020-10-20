@@ -39,21 +39,23 @@ fi
 if [ "$OS" == "RedHat" ]; then
     $sudo_cmd yum -y install epel-release
     $sudo_cmd yum -y update && $sudo_cmd yum -y install $(cat ./packages/debian)
-    curl -fsSL https://get.docker.com -o /tmp/get-docker.sh
-    $sudo_cmd sh /tmp/get-docker.sh
-    $sudo_cmd usermod -aG docker $USER
 
 elif [ "$OS" == "Debian" ]; then
     $sudo_cmd apt update && $sudo_cmd apt install -y $(cat Packages.txt)
-    curl -fsSL https://get.docker.com -o /tmp/get-docker.sh
-    $sudo_cmd sh /tmp/get-docker.sh
-    $sudo_cmd usermod -aG docker $USER
 
 
 elif [ "$OX" == "SUSE"]; then
     $sudo_cmd zypper refresh -y && $sudo_cmd zypper update -y && sudo_cmd zypper install $(cat Packages.txt)
-    curl -fsSL https://get.docker.com -o /tmp/get-docker.sh
-    $sudo_cmd sh /tmp/get-docker.sh
-    $sudo_cmd usermod -aG docker.sh $USER
 fi
 # $sudo_cmd sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+## Install Docker and Docker Compose and Minikube
+curl -fsSL https://get.docker.com -o /tmp/get-docker.sh
+$sudo_cmd sh /tmp/get-docker.sh
+$sudo_cmd usermod -aG docker.sh $USER
+$sudo_cmd curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)"\
+    -o /usr/local/bin/docker-compose
+$sudo_cmd chmod +x /usr/local/bin/docker-compose
+$sudo_cmd curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+$sudo_cmd sudo install minikube-linux-amd64 /usr/local/bin/minikube`
+
