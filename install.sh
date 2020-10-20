@@ -1,6 +1,7 @@
 #/bin/bash
 KNOWN_DISTRIBUTION="(Debian|Ubuntu|RedHat|CentOS|openSUSE|Amazon|Arista|SUSE)"
 DISTRIBUTION=$(lsb_release -d 2>/dev/null | grep -Eo $KNOWN_DISTRIBUTION  || grep -Eo $KNOWN_DISTRIBUTION /etc/issue 2>/dev/null || grep pa-Eo $KNOWN_DISTRIBUTION /etc/Eos-release 2>/dev/null || grep -m1 -Eo $KNOWN_DISTRIBUTION /etc/os-release 2>/dev/null || uname -s)
+USER=$(whoami)
 
 
 if [ $DISTRIBUTION = "Darwin" ]; then
@@ -40,16 +41,19 @@ if [ "$OS" == "RedHat" ]; then
     $sudo_cmd yum -y update && $sudo_cmd yum -y install $(cat ./packages/debian)
     curl -fsSL https://get.docker.com -o /tmp/get-docker.sh
     $sudo_cmd sh /tmp/get-docker.sh
+    $sudo_cmd usermod -aG docker $USER
 
 elif [ "$OS" == "Debian" ]; then
     $sudo_cmd apt update && $sudo_cmd apt install -y $(cat Packages.txt)
     curl -fsSL https://get.docker.com -o /tmp/get-docker.sh
     $sudo_cmd sh /tmp/get-docker.sh
+    $sudo_cmd usermod -aG docker $USER
 
 
 elif [ "$OX" == "SUSE"]; then
     $sudo_cmd zypper refresh -y && $sudo_cmd zypper update -y && sudo_cmd zypper install $(cat Packages.txt)
     curl -fsSL https://get.docker.com -o /tmp/get-docker.sh
     $sudo_cmd sh /tmp/get-docker.sh
+    $sudo_cmd usermod -aG docker.sh $USER
 fi
 # $sudo_cmd sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
