@@ -37,11 +37,19 @@ fi
 
 if [ "$OS" == "RedHat" ]; then
     $sudo_cmd yum -y install epel-release
-    $sudo_cmd yum -y update && $sudo_cmd yum -y install $(cat Packages.txt)
+    $sudo_cmd yum -y update && $sudo_cmd yum -y install $(cat ./packages/debian)
+    curl -fsSL https://get.docker.com -o /tmp/get-docker.sh
+    $sudo_cmd sh /tmp/get-docker.sh
 
 elif [ "$OS" == "Debian" ]; then
     $sudo_cmd apt update && $sudo_cmd apt install -y $(cat Packages.txt)
+    curl -fsSL https://get.docker.com -o /tmp/get-docker.sh
+    $sudo_cmd sh /tmp/get-docker.sh
+
+
 elif [ "$OX" == "SUSE"]; then
     $sudo_cmd zypper refresh -y && $sudo_cmd zypper update -y && sudo_cmd zypper install $(cat Packages.txt)
+    curl -fsSL https://get.docker.com -o /tmp/get-docker.sh
+    $sudo_cmd sh /tmp/get-docker.sh
 fi
 # $sudo_cmd sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
