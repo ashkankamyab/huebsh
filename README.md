@@ -11,14 +11,14 @@ Huesbh which mean beauty in German, used to be based on Ubuntu, but I decide to 
     - [x] BACKGROUNDS
     - [x] APPEARANCE
     - [ ] WINDOWS
-- [x] Fix apt bug
+
 - [ ] Pacman compatible
 - [ ] Clear Linux
 
 - [ ] lsb_release for **_".bash_aliases"_**
     - [x] Ubuntu
-    - [x] Suse
-    - [x] RHEL
+    - [ ] Suse
+    - [ ] RHEL
     - [ ] Arh
     - [ ] Darwin
     - [ ] WLS(Windows Linux subsystem)
