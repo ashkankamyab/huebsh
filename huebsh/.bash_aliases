@@ -15,7 +15,8 @@ alias BS='browser-sync start --directory --server --ui-port 8991 --port 8990 --f
 # https://ubuntuforums.org/showthread.php?t=1229355
 alias khnb='mplayer -geometry 100%:100% -noborder -ontop -tv driver=v4l2:gain=1:width=320:height=240:device=/dev/video0:fps=20:outfmt=rgb32 tv://'
 alias jsonpy="python3 -m json.tool"
-alias doit="du --si --exclude=/{dev,proc,sys,mnt,run} /* --max-depth=3 -t 2G"
+alias envpy ="python3 -m venv"
+alias doit="$sudo_cmd du --si --exclude=/{dev,proc,sys,mnt,run} /* --max-depth=3 -t 2G"
 
 
 # Git Aliases

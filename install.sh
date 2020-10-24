@@ -56,6 +56,25 @@ $sudo_cmd usermod -aG docker.sh $USER
 $sudo_cmd curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)"\
     -o /usr/local/bin/docker-compose
 $sudo_cmd chmod +x /usr/local/bin/docker-compose
-$sudo_cmd curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-$sudo_cmd sudo install minikube-linux-amd64 /usr/local/bin/minikube`
+$sudo_cmd curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
+    -o minikube-linux-amd64 && $sudo_cmd install minikube-linux-amd64 /usr/local/bin/minikube \
+    && rm -f minikube-linux-amd64
+
+$sudo_cmd snap install code --classic
+$sudo_cmd snap install skype --classic
+$sudo_cmd snap install spotify
+$sudo_cmd snap install slack --classic
+
+# Install pip and virtualenv
+curl https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py
+python3 /tmp/get-pip.py
+
+if type "$pip --version" > /dev/null; then
+    pip install virtualenv
+    pip install speedtest-cli
+    pip install youtube-dl
+    pip install glances
+fi
+
+
 
