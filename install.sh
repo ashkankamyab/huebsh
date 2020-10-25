@@ -50,7 +50,7 @@ fi
 # $sudo_cmd sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 ## Huebsh installtion
-. src/huebsh_install.sh
+source src/huebsh_install.sh
 
 
 ## Install Docker and Docker Compose and Minikube
@@ -78,7 +78,7 @@ pip install youtube-dl
 pip install glances
 
 # Install huebsh_shell
-cp .bash_aliases .bash_functions .bashrc ~
+cp src/.bash_aliases src/.bash_functions src/.bashrc ~
 huebsh_shell
 sleep 3
 huebsh_tmux
