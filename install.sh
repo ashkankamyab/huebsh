@@ -41,7 +41,7 @@ if [ "$OS" == "RedHat" ]; then
     $sudo_cmd yum -y update && $sudo_cmd yum -y install $(cat ./packages/debian)
 
 elif [ "$OS" == "Debian" ]; then
-    $sudo_cmd apt update && $sudo_cmd apt install -y $(cat Packages.txt)
+    $sudo_cmd apt update -qqq > /dev/null && $sudo_cmd apt install-qqy > /dev/null $(cat Packages.txt)
 
 
 elif [ "$OX" == "SUSE"]; then
@@ -75,8 +75,13 @@ pip install youtube-dl
 pip install glances
 
 ## Huebsh installtion
-source src/huebsh_install.sh
-cp src/.bash_aliases src/.bash_functions src/.bashrc src/.vimrc ~
-huebsh_shell
+source src/huebsh_shell.sh; echo "==== Huebsh sourced ===="
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim > /dev/null; echo "==== Vundle cloned ===="
+cp src/.bash_aliases src/.bash_functions src/.bashrc src/.vimrc ~ ; echo "==== Dot files coppied ===="
+echo "==== installing Huebsh_shell ===="; huebsh_shell
 sleep 3
-huebsh_tmux
+echo "==== installing Huebsh_tmux ===="; huebsh_tmux
+echo " Done !!!"; sleep 3 && clear
+echo " Done !!! Congratz "; sleep 1 && clear
+echo " Done !!! Congratz "; sleep 1 && clear
+cowsay "Very Well Done"
