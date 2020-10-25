@@ -41,7 +41,7 @@ if [ "$OS" == "RedHat" ]; then
     $sudo_cmd yum -y update && $sudo_cmd yum -y install $(cat ./packages/debian)
 
 elif [ "$OS" == "Debian" ]; then
-    $sudo_cmd apt update -qqq > /dev/null && $sudo_cmd apt install-qqy > /dev/null $(cat Packages.txt)
+    $sudo_cmd apt update -qqq > /dev/null && $sudo_cmd apt install -qqy > /dev/null $(cat Packages.txt)
 
 
 elif [ "$OX" == "SUSE"]; then
@@ -53,7 +53,7 @@ fi
 ## Install Docker and Docker Compose and Minikube
 curl -fsSL https://get.docker.com -o /tmp/get-docker.sh
 $sudo_cmd sh /tmp/get-docker.sh
-$sudo_cmd usermod -aG docker.sh $USER
+$sudo_cmd usermod -aG docker $USER
 $sudo_cmd curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)"\
     -o /usr/local/bin/docker-compose
 $sudo_cmd chmod +x /usr/local/bin/docker-compose
