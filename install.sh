@@ -49,6 +49,10 @@ elif [ "$OX" == "SUSE"]; then
 fi
 # $sudo_cmd sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+## Huebsh installtion
+. src/huebsh_install.sh
+
+
 ## Install Docker and Docker Compose and Minikube
 curl -fsSL https://get.docker.com -o /tmp/get-docker.sh
 $sudo_cmd sh /tmp/get-docker.sh
@@ -68,6 +72,16 @@ $sudo_cmd snap install slack --classic
 # Install pip and virtualenv
 curl https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py
 python3 /tmp/get-pip.py
+
+if [ $(which pip --version > /dev/null) ]
+then
+    pip install virtualenv
+    pip install speedtest-cli
+    pip install youtube-dl
+    pip install glances
+else
+    echo "Pip not installed"
+fi
 
 if type "$pip --version" > /dev/null; then
     pip install virtualenv

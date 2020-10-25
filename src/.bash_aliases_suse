@@ -1,0 +1,16 @@
+# Root user detection
+if [ $(echo "$UID") = "0" ]; then
+    sudo_cmd=''
+else
+    sudo_cmd='sudo'
+fi
+
+alias ll='ls -lhai'
+alias cls='clear'
+alias rm='rm -I'
+alias tlp-start='$sudo_cmd tlp start'
+alias tlp-stat='$sudo_cmd tlp stat'
+
+alias nowrooz='$sudo_cmd zypper -q refresh && $sudo_cmd zypper -q update'
+
+alias myServer='youruser@yourdmoain'

@@ -1,0 +1,28 @@
+# git linha de comando
+git_status() {
+  untracked=$(git status | grep 'Untracked files' 2> /dev/null)
+  if [ -n "$untracked" ]; then
+    echo "☢"
+  fi
+  to_commit=$(git status | grep 'Changes not staged for commit' 2> /dev/null)
+  if [ -n "$to_commit" ]; then
+    echo "☠"
+  fi
+  is_ahead=$(git status | grep 'Your branch is ahead of' 2> /dev/null)
+  if [ -n "$is_ahead" ]; then
+    echo "⇧"
+  else
+    is_behind=$(git status | grep 'Your branch is behind' 2> /dev/null)
+    if [ -n "$is_behind" ]; then
+      echo "⇩"
+    fi
+  fi
+}
+parse_git_branch ()
+{
+  branch=$(git branch 2> /dev/null | grep -e '\* ' | sed 's/^..\(.*\)/[\1]/')
+  if [ -n "$branch" ]; then
+    echo $branch$(git_status)
+  fi
+}
+export PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
