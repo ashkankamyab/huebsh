@@ -49,9 +49,6 @@ elif [ "$OX" == "SUSE"]; then
 fi
 # $sudo_cmd sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-## Huebsh installtion
-source src/huebsh_install.sh
-
 
 ## Install Docker and Docker Compose and Minikube
 curl -fsSL https://get.docker.com -o /tmp/get-docker.sh
@@ -77,8 +74,9 @@ pip install speedtest-cli
 pip install youtube-dl
 pip install glances
 
-# Install huebsh_shell
-cp src/.bash_aliases src/.bash_functions src/.bashrc ~
+## Huebsh installtion
+source src/huebsh_install.sh
+cp src/.bash_aliases src/.bash_functions src/.bashrc src/.vimrc ~
 huebsh_shell
 sleep 3
 huebsh_tmux
