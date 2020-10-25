@@ -39,7 +39,3 @@ function huebsh_tmux() {
         return 1
 }
 
-cp .bash_aliases .bash_functions .bashrc ~
-huebsh_shell
-sleep 3
-huebsh_tmux

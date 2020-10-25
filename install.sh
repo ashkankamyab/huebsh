@@ -72,23 +72,13 @@ $sudo_cmd snap install slack --classic
 # Install pip and virtualenv
 curl https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py
 python3 /tmp/get-pip.py
+pip install virtualenv
+pip install speedtest-cli
+pip install youtube-dl
+pip install glances
 
-if [ $(which pip --version > /dev/null) ]
-then
-    pip install virtualenv
-    pip install speedtest-cli
-    pip install youtube-dl
-    pip install glances
-else
-    echo "Pip not installed"
-fi
-
-if type "$pip --version" > /dev/null; then
-    pip install virtualenv
-    pip install speedtest-cli
-    pip install youtube-dl
-    pip install glances
-fi
-
-
-
+# Install huebsh_shell
+cp .bash_aliases .bash_functions .bashrc ~
+huebsh_shell
+sleep 3
+huebsh_tmux
