@@ -78,9 +78,9 @@ pip install glances
 source src/huebsh_shell.sh; echo "==== Huebsh sourced ===="
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim > /dev/null; echo "==== Vundle cloned ===="
 cp src/.bash_aliases src/.bash_functions src/.bashrc src/.vimrc ~ ; echo "==== Dot files coppied ===="
-echo "==== installing Huebsh_shell ===="; huebsh_shell
-sleep 3
 echo "==== installing Huebsh_tmux ===="; huebsh_tmux
+sleep 3
+echo "==== installing Huebsh_shell ===="; huebsh_shell
 echo " Done !!!"; sleep 3 && clear
 echo " Done !!! Congratz "; sleep 1 && clear
 echo " Done !!! Congratz "; sleep 1 && clear
