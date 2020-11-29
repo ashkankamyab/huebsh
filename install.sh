@@ -1,7 +1,6 @@
 #/bin/bash
 KNOWN_DISTRIBUTION="(Debian|Ubuntu|RedHat|CentOS|openSUSE|Amazon|Arista|SUSE)"
 DISTRIBUTION=$(lsb_release -d 2>/dev/null | grep -Eo $KNOWN_DISTRIBUTION  || grep -Eo $KNOWN_DISTRIBUTION /etc/issue 2>/dev/null || grep pa-Eo $KNOWN_DISTRIBUTION /etc/Eos-release 2>/dev/null || grep -m1 -Eo $KNOWN_DISTRIBUTION /etc/os-release 2>/dev/null || uname -s)
-USER=$(whoami)
 
 
 if [ $DISTRIBUTION = "Darwin" ]; then
@@ -38,13 +37,14 @@ fi
 
 if [ "$OS" == "RedHat" ]; then
     $sudo_cmd yum -y install epel-release
-    $sudo_cmd yum -y update && $sudo_cmd yum -y install $(cat ./packages/debian)
+    $sudo_cmd yum -y update && $sudo_cmd yum -y install $(cat ./packages/fedora)
+    $sudo_cmd yum -y groupinstall “Development Tools”
 
 elif [ "$OS" == "Debian" ]; then
-    $sudo_cmd apt update -qqq > /dev/null && $sudo_cmd apt install -qqy > /dev/null $(cat Packages.txt)
+    $sudo_cmd apt update -qqq > /dev/null && $sudo_cmd apt install -qqy > /dev/null $(cat ./packages/debian)
 
 
-elif [ "$OX" == "SUSE"]; then
+elif [ "$OS" == "SUSE"]; then
     $sudo_cmd zypper refresh -y && $sudo_cmd zypper update -y && sudo_cmd zypper install $(cat Packages.txt)
 fi
 # $sudo_cmd sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -65,14 +65,13 @@ $sudo_cmd snap install code --classic
 $sudo_cmd snap install skype --classic
 $sudo_cmd snap install spotify
 $sudo_cmd snap install slack --classic
+$sudo_cmd snap install chromium
 
 # Install pip and virtualenv
-curl https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py
-python3 /tmp/get-pip.py
-pip install virtualenv
-pip install speedtest-cli
-pip install youtube-dl
-pip install glances
+python3 -m pip install virtualenv
+python3 -m pip install speedtest-cli
+python3 -m pip install youtube-dl
+python3 -m pip install glances
 
 ## Huebsh installtion
 source src/huebsh_shell.sh; echo "==== Huebsh sourced ===="
