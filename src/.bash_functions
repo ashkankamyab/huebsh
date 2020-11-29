@@ -130,3 +130,19 @@ function socksy() {
     esac
 }
 
+# Python3 BoilerPlate
+function BoilerPy(){
+    
+    readonly DIR_PATH=${1:-$(pwd)}
+    #TODO: Check whether this already exist
+    git init $DIR_PATH
+    #TODO: check whether this already exist
+    print ".venv/\nvenv/\n__pycache__/\n*.pyc\n*.key" > $DIR_PATH/.gitignore
+    touch requirements.txt
+    #TODO: check whether this already exist
+    print "#!/usr/bin/env python3" > $DIR_PATH/main.py
+    chmod +x $DIR_PATH/main.py
+
+    python3 -m venv $DIR_PATH/.venv
+    source $DIR_PATH/.venv/bin/activate
+}
