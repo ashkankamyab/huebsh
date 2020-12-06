@@ -2,7 +2,6 @@ wget
 tlp
 vim
 geany
-chromium-browser
 gnome-tweak-tool
 vlc
 tmux
@@ -22,6 +21,8 @@ cowsay
 mosh
 
 python3-dev
+python3-pip
+python3-venv
 ipython3
 dsniff
 build-essential
