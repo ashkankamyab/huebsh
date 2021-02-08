@@ -131,7 +131,7 @@ function socksy() {
 }
 
 # Python3 BoilerPlate
-function BoilerPy(){
+function Pyler(){
     
     readonly DIR_PATH=${1:-$(pwd)}
     #TODO: Check whether this already exist
