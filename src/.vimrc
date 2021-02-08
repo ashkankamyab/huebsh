@@ -15,6 +15,7 @@ Plugin 'gmarik/Vundle.vim'
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
 " SimplyFold refer to line 13
+" TODO: "Add comment for each plugin"
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'Valloric/YouCompleteMe'
@@ -28,6 +29,8 @@ Plugin 'tpope/vim-fugitive'
 "Colorized vim"
 Plugin 'jnurmine/Zenburn'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'fatih/vim-go'
+
 " ...
 
 " All of your Plugins must be added before the following line
@@ -113,12 +116,13 @@ syntax on
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
 
-" JS, HTML, CSS, YAML, JSON
-au BufNewFile, BufRead *.js, *.html, *.css, *.yml, *.yaml, *.json
+" JS, HTML, CSS, YAML, JSON, GO
+au BufNewFile, BufRead *.js, *.html, *.css, *.yml, *.yaml, *.json, *.go 
     \ set tabstop=2
     \ set softtabstop=2
     \ set shiftwidth=2
 au BufRead, BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
 
 "Color scheme
 if has('gui_running')
