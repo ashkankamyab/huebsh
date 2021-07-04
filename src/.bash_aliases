@@ -1,4 +1,4 @@
-implified commandline
+#simplified commandline
 alias ll='ls -lhaF'
 alias cls='clear'
 alias rm='rm -I'
@@ -24,7 +24,7 @@ alias git-stat='git status'
 alias git-log='git log'
 alias git-commit='git add -A && git commit --allow-empty'
 alias gl='git log --oneline --all --graph --decorate $*'
-alias git-clean-branches="for branch in `git branch | grep $1 | awk '{print $1}'`; do git branch -D $branch; done"
+#alias git-clean-branches="for branch in `git branch | grep $1 | awk '{print $1}'`; do git branch -D $branch; done"
 
 
 ## Directory selector
@@ -41,5 +41,5 @@ alias vimx='xclip -i -selection clipboard -o | vim -'
 # alias behrooz=' $sudo_cmd apt-get autoclean  -q &&  $sudo_cmd apt-get autoremove -q'
 # alias nowbeh='nowrooz && behrooz'
 # Log Compresser
-alias logpresser="for file in `find . -mtime +15 -type f ! -name '*.log' -printf '%P\n';`;do lsof $file>/dev/null;is=$?;if [ $is -ne 0 ];then gzip $file;echo File gzipped: $file;else echo File being used:$file;fi;done"
+#alias logpresser="for file in `find . -mtime +15 -type f ! -name '*.log' -printf '%P\n';`;do lsof $file>/dev/null;is=$?;if [ $is -ne 0 ];then gzip $file;echo File gzipped: $file;else echo File being used:$file;fi;done"
 
