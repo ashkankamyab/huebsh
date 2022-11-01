@@ -146,3 +146,12 @@ function Pyler(){
     python3 -m venv $DIR_PATH/.venv
     source $DIR_PATH/.venv/bin/activate
 }
+
+function GenPassword(){
+    readonly LENGHT=${1:-16}
+    re='^[0-9]+$'
+    if ! [[ $LENGHT =~ $re ]] ; then
+        echo "error: Not a number" >&2; exit 1
+    fi
+    openssl rand -base64 $LENGHT
+}
