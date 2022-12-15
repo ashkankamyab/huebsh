@@ -35,6 +35,7 @@ alias vgr='cd ~/Documents/Vagrant;clear'
 # SysOps
 # https://www.commandlinefu.com/commands/view/24360/open-clipboard-content-on-vim
 alias vimx='xclip -i -selection clipboard -o | vim -'
+alias tmux="TERM=screen-256color-bce tmux"
 
 # TODO:  Destro compatibility
 # alias nowrooz=' $sudo_cmd apt-get update -qq &&  $sudo_cmd apt-get upgrade -yqq'
